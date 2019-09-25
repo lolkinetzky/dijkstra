@@ -1,4 +1,3 @@
-require "pry"
 
 def dijkstra(adjacency_matrix, start_node) 
 
