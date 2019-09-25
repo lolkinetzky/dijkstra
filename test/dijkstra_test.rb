@@ -62,4 +62,23 @@ describe "dijkstra" do
         shortest_distances: [0, 4, 16, Float::INFINITY]
     })
   end
+
+  it "will work for an starting nodes other than 0" do
+    # Arrange
+    adjacency_matrix =[ 
+      [0, 4, 0, 0],
+      [4, 0, 12, 0],
+      [0, 12, 0, 0],
+      [0,  0, 0, 0]
+    ]
+
+    # Act
+    answer = dijkstra(adjacency_matrix, 2)
+
+    expect(answer).must_equal({
+        start_node: 2, 
+        parent_list: [1, 2, nil, nil], 
+        shortest_distances: [16, 12, 0, Float::INFINITY]
+    })
+  end
 end
