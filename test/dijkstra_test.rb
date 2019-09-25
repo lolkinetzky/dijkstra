@@ -1,7 +1,7 @@
 require_relative "test_helper"
 
 describe "dijkstra" do
-  it "works?" do
+  it "works with a largish complicated matrix" do
     # Arrange
     adjacency_matrix =[ 
       [ 0, 4, 0, 0, 0, 0, 0, 8, 0 ], 
@@ -79,6 +79,25 @@ describe "dijkstra" do
         start_node: 2, 
         parent_list: [1, 2, nil, nil], 
         shortest_distances: [16, 12, 0, Float::INFINITY]
+    })
+  end
+
+  it "will report no connections starting at an unconnected node" do
+    # Arrange
+    adjacency_matrix =[ 
+      [0, 4, 0, 0],
+      [4, 0, 12, 0],
+      [0, 12, 0, 0],
+      [0,  0, 0, 0]
+    ]
+
+    # Act
+    answer = dijkstra(adjacency_matrix, 3)
+
+    expect(answer).must_equal({
+        start_node: 3, 
+        parent_list: [nil, nil, nil, nil], 
+        shortest_distances: [Float::INFINITY, Float::INFINITY, Float::INFINITY, 0]
     })
   end
 end
