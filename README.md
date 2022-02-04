@@ -1,6 +1,6 @@
 # Dijkstra's Algorithm
 
-This repository is a sample solution of Dijsktra's algorithm written in Ruby.
+This repository is a sample solution of Dijsktra's algorithm written in Python.
 
 ## Todo Items
 
